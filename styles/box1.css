@@ -32,6 +32,7 @@ body {
   font-size: 2.3125rem;
   color: white;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .logo:hover {
@@ -55,7 +56,7 @@ body {
   color: rgb(134, 27, 27);
 }
 
-/* Бургер-меню */
+/* Бургер-меню (для мобільних пристроїв) */
 .burger-menu {
   display: flex;
   background: none;
@@ -77,9 +78,9 @@ body {
   transform: scale(1.2);
 }
 
-/* Фіксовані соціальні іконки */
+/* Іконки соц. мереж */
 .social-icons {
-  position: fixed; /* Фіксуємо на екрані */
+  position: fixed; /* Постійна фіксація на екрані */
   bottom: 2vw;
   left: 4vw;
   display: flex;
@@ -90,29 +91,30 @@ body {
 .icon {
   width: 2.3125rem;
   height: 2.3125rem;
-  fill: currentColor;
+  fill: white;
   transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
 }
 
 .icon:hover {
-  color: rgb(134, 27, 27);
+  fill: rgb(134, 27, 27);
   transform: scale(1.2);
 }
 
-/* Перший блок */
+/* Блок 1 */
 .content {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url('../images/background/background1.jpg');
-  background-size: cover;
-  background-position: center top;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url('../images/background/background1.jpg');
+  background-size: cover;
+  background-position: center top;
 }
 
-/* Другий блок */
+/* Блок 2 */
 .block2 {
   display: flex;
   align-items: center;
@@ -125,7 +127,7 @@ body {
   z-index: 1;
 }
 
-/* Текстовий блок */
+/* Текстовий контейнер */
 .text-container {
   flex: 1;
   max-width: 40%;
@@ -164,7 +166,6 @@ body {
   overflow: hidden;
 }
 
-/* Слайдер */
 .slider {
   display: flex;
   width: 100%;
@@ -223,14 +224,54 @@ body {
 
   .icon,
   .burger-menu .icon {
-    width: 2.3125rem;
-    height: 2.3125rem;
+      width: 2.3125rem;
+      height: 2.3125rem;
   }
 }
 
-/* Додатковий медіа-запит для великих екранів */
+/* Для великих екранів */
 @media (min-width: 1100px) {
   .burger-menu {
     display: none;
+  }
+}
+
+@media (max-width: 877px) {
+  .block2 {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .slider-container {
+      order: -1; /* Переміщує слайдер на перше місце */
+      max-width: 100%;
+      height: auto;
+  }
+
+  .slider img {
+      width: 100%;
+      height: auto;
+  }
+
+  .text-container {
+      max-width: 100%;
+      text-align: left;
+      padding: 3vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Вирівнює вміст по вертикалі */
+  }
+
+  .text-container h2 {
+      font-size: 1.8rem;
+  }
+
+  .text-container p {
+      font-size: 1rem;
+  }
+
+  .series-link {
+      font-size: 1rem;
   }
 }
